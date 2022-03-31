@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.Oven;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.OvenBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class OvenBuilderImpl implements OvenBuilderInterface {
+public class OvenBuilderImpl implements ApplianceBuilderInterface {
     Oven oven = new Oven();
 
     @Override
@@ -32,24 +31,20 @@ public class OvenBuilderImpl implements OvenBuilderInterface {
         return this;
     }
 
-    @Override
-    public OvenBuilderInterface setCapacity(int capacity) {
+    public OvenBuilderImpl setCapacity(int capacity) {
         oven.setCapacity(capacity);
         return this;
     }
 
-    @Override
-    public OvenBuilderInterface setDepth(int depth) {
+    public OvenBuilderImpl setDepth(int depth) {
         oven.setDepth(depth);
         return this;
     }
 
-    @Override
     public Oven build() {
         return oven;
     }
 
-    @Override
     public Oven build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

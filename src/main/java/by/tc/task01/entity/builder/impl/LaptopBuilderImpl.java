@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.Laptop;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.LaptopBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class LaptopBuilderImpl implements LaptopBuilderInterface {
+public class LaptopBuilderImpl implements ApplianceBuilderInterface {
     Laptop laptop = new Laptop();
 
     @Override
@@ -32,48 +31,40 @@ public class LaptopBuilderImpl implements LaptopBuilderInterface {
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setBatteryCapacity(double batteryCapacity) {
+    public LaptopBuilderImpl setBatteryCapacity(double batteryCapacity) {
         laptop.setBatteryCapacity(batteryCapacity);
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setOs(String os) {
+    public LaptopBuilderImpl setOs(String os) {
         laptop.setOs(os);
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setMemoryRom(int memoryRom) {
+    public LaptopBuilderImpl setMemoryRom(int memoryRom) {
         laptop.setMemoryRom(memoryRom);
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setSystemMemory(int systemMemory) {
+    public LaptopBuilderImpl setSystemMemory(int systemMemory) {
         laptop.setSystemMemory(systemMemory);
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setCpu(double cpu) {
+    public LaptopBuilderImpl setCpu(double cpu) {
         laptop.setCpu(cpu);
         return this;
     }
 
-    @Override
-    public LaptopBuilderInterface setDisplayInches(int displayInches) {
+    public LaptopBuilderImpl setDisplayInches(int displayInches) {
         laptop.setDisplayInches(displayInches);
         return this;
     }
 
-    @Override
     public Laptop build() {
         return laptop;
     }
 
-    @Override
     public Laptop build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

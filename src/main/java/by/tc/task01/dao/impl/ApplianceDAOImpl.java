@@ -2,13 +2,10 @@ package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
 import by.tc.task01.entity.*;
-import by.tc.task01.entity.builder.LaptopBuilderInterface;
-import by.tc.task01.entity.builder.OvenBuilderInterface;
 import by.tc.task01.entity.builder.impl.*;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.ServiceFactory;
 
-import java.io.*;
 import java.util.*;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
@@ -38,10 +35,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     }
 
     private Appliance createObject(String line, String groupSearchName) {
-        String[] param = ServiceFactory.getParam(line);
         switch (groupSearchName){
             case "Oven":
-                return new Oven().build(line);
+                return new OvenBuilderImpl().build(line);
             case "Laptop":
                 return new LaptopBuilderImpl().build(line);
             case "Refrigerator":
@@ -53,6 +49,6 @@ public class ApplianceDAOImpl implements ApplianceDAO {
             case "VacuumCleaner":
                 return new VacuumCleanerBuilderImpl().build(line);
         }
-        return new Appliance();
+        return (Appliance) new Object();
     }
 }

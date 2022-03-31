@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.Speakers;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.SpeakersBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class SpeakersBuilderImpl implements SpeakersBuilderInterface {
+public class SpeakersBuilderImpl implements ApplianceBuilderInterface {
     Speakers speakers = new Speakers();
 
     @Override
@@ -32,30 +31,25 @@ public class SpeakersBuilderImpl implements SpeakersBuilderInterface {
         return this;
     }
 
-    @Override
-    public SpeakersBuilderInterface setNumberOfSpeakers(int numberOfSpeakers) {
+    public SpeakersBuilderImpl setNumberOfSpeakers(int numberOfSpeakers) {
         speakers.setNumberOfSpeakers(numberOfSpeakers);
         return this;
     }
 
-    @Override
-    public SpeakersBuilderInterface setFrequencyRange(String frequencyRange) {
+    public SpeakersBuilderImpl setFrequencyRange(String frequencyRange) {
         speakers.setFrequencyRange(frequencyRange);
         return this;
     }
 
-    @Override
-    public SpeakersBuilderInterface setCordLength(int cordLength) {
+    public SpeakersBuilderImpl setCordLength(int cordLength) {
         speakers.setCordLength(cordLength);
         return this;
     }
 
-    @Override
     public Speakers build() {
         return speakers;
     }
 
-    @Override
     public Speakers build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

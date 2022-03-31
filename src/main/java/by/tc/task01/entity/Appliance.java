@@ -3,14 +3,11 @@ package by.tc.task01.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Appliance implements Serializable {
+public abstract class Appliance implements Serializable {
     private int weight;
     private double height;
     private double width;
     private int powerConsumption;
-
-    public Appliance() {
-    }
 
     public int getWeight() {
         return weight;
@@ -43,9 +40,8 @@ public class Appliance implements Serializable {
         return powerConsumption;
     }
 
-    public Appliance setPowerConsumption(int powerConsumption) {
+    public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
-        return this;
     }
 
     @Override

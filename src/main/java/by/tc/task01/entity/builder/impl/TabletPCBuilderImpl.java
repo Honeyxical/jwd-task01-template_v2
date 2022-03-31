@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.TabletPC;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.TabletPCBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class TabletPCBuilderImpl implements TabletPCBuilderInterface {
+public class TabletPCBuilderImpl implements ApplianceBuilderInterface {
     TabletPC tabletPC = new TabletPC();
 
     @Override
@@ -32,42 +31,35 @@ public class TabletPCBuilderImpl implements TabletPCBuilderInterface {
         return this;
     }
 
-    @Override
-    public TabletPCBuilderInterface setBatteryCapacity(int batteryCapacity) {
+    public TabletPCBuilderImpl setBatteryCapacity(int batteryCapacity) {
         tabletPC.setBatteryCapacity(batteryCapacity);
         return this;
     }
 
-    @Override
-    public TabletPCBuilderInterface setDisplayInches(int displayInches) {
+    public TabletPCBuilderImpl setDisplayInches(int displayInches) {
         tabletPC.setDisplayInches(displayInches);
         return this;
     }
 
-    @Override
-    public TabletPCBuilderInterface setMemoryRom(int memoryRom) {
+    public TabletPCBuilderImpl setMemoryRom(int memoryRom) {
         tabletPC.setMemoryRom(memoryRom);
         return this;
     }
 
-    @Override
-    public TabletPCBuilderInterface setFlashMemoryCapacity(int flashMemoryCapacity) {
+    public TabletPCBuilderImpl setFlashMemoryCapacity(int flashMemoryCapacity) {
         tabletPC.setFlashMemoryCapacity(flashMemoryCapacity);
         return this;
     }
 
-    @Override
-    public TabletPCBuilderInterface setColor(String color) {
+    public TabletPCBuilderImpl setColor(String color) {
         tabletPC.setColor(color);
         return this;
     }
 
-    @Override
     public TabletPC build() {
         return tabletPC;
     }
 
-    @Override
     public TabletPC build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

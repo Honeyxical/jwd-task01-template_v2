@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.Refrigerator;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.RefrigeratorBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class RefrigeratorBuilderImpl implements RefrigeratorBuilderInterface {
+public class RefrigeratorBuilderImpl implements ApplianceBuilderInterface {
     Refrigerator refrigerator = new Refrigerator();
 
     @Override
@@ -32,24 +31,20 @@ public class RefrigeratorBuilderImpl implements RefrigeratorBuilderInterface {
         return this;
     }
 
-    @Override
-    public RefrigeratorBuilderInterface setFreezerCapacity(int freezerCapacity) {
+    public RefrigeratorBuilderImpl setFreezerCapacity(int freezerCapacity) {
         refrigerator.setFreezerCapacity(freezerCapacity);
         return this;
     }
 
-    @Override
-    public RefrigeratorBuilderInterface setOverallCapacity(double overallCapacity) {
+    public RefrigeratorBuilderImpl setOverallCapacity(double overallCapacity) {
         refrigerator.setOverallCapacity(overallCapacity);
         return this;
     }
 
-    @Override
     public Refrigerator build() {
         return refrigerator;
     }
 
-    @Override
     public Refrigerator build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

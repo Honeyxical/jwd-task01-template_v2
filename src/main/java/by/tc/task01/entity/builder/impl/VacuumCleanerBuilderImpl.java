@@ -2,10 +2,9 @@ package by.tc.task01.entity.builder.impl;
 
 import by.tc.task01.entity.VacuumCleaner;
 import by.tc.task01.entity.builder.ApplianceBuilderInterface;
-import by.tc.task01.entity.builder.VacuumCleanerBuilderInterface;
 import by.tc.task01.service.ServiceFactory;
 
-public class VacuumCleanerBuilderImpl implements VacuumCleanerBuilderInterface {
+public class VacuumCleanerBuilderImpl implements ApplianceBuilderInterface {
     VacuumCleaner vacuumCleaner = new VacuumCleaner();
 
     @Override
@@ -32,42 +31,35 @@ public class VacuumCleanerBuilderImpl implements VacuumCleanerBuilderInterface {
         return this;
     }
 
-    @Override
-    public VacuumCleanerBuilderInterface setFilterType(String filterType) {
+    public VacuumCleanerBuilderImpl setFilterType(String filterType) {
         vacuumCleaner.setFilterType(filterType);
         return this;
     }
 
-    @Override
-    public VacuumCleanerBuilderInterface setBagType(String bagType) {
+    public VacuumCleanerBuilderImpl setBagType(String bagType) {
         vacuumCleaner.setBagType(bagType);
         return this;
     }
 
-    @Override
-    public VacuumCleanerBuilderInterface setWandType(String wandType) {
+    public VacuumCleanerBuilderImpl setWandType(String wandType) {
         vacuumCleaner.setWandType(wandType);
         return this;
     }
 
-    @Override
-    public VacuumCleanerBuilderInterface setMotorSpeedRegulation(int motorSpeedRegulation) {
+    public VacuumCleanerBuilderImpl setMotorSpeedRegulation(int motorSpeedRegulation) {
         vacuumCleaner.setMotorSpeedRegulation(motorSpeedRegulation);
         return this;
     }
 
-    @Override
-    public VacuumCleanerBuilderInterface setCleaningWidth(int cleaningWidth) {
+    public VacuumCleanerBuilderImpl setCleaningWidth(int cleaningWidth) {
         vacuumCleaner.setCleaningWidth(cleaningWidth);
         return this;
     }
 
-    @Override
     public VacuumCleaner build() {
         return vacuumCleaner;
     }
 
-    @Override
     public VacuumCleaner build(String line) {
         String[] param = ServiceFactory.getParam(line);
 

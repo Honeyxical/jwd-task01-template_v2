@@ -4,6 +4,7 @@ import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
+import by.tc.task01.service.validation.Validator;
 
 import java.io.FileNotFoundException;
 
@@ -11,13 +12,15 @@ import static by.tc.task01.entity.criteria.SearchCriteria.Oven;
 
 public class Main {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args){
+
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
 
 		Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());//"Oven"
 		criteriaOven.add(Oven.CAPACITY.toString(), 3);
 
+//		Validator.criteriaValidator(criteriaOven);
 		PrintApplianceInfo.print(service.find(criteriaOven));
 
 		criteriaOven = new Criteria(Oven.class.getSimpleName());

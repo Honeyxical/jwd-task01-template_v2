@@ -7,8 +7,13 @@ import java.util.List;
 public class PrintApplianceInfo {
 
 	public static void print(List<Appliance> applianceList) {
-		for (Object obj : applianceList) {
-			System.out.println(obj.toString());
+		if(applianceList.isEmpty()){
+			System.out.println("No results!");
+		}else {
+			for (Object obj : applianceList) {
+				System.out.println(obj.toString());
+			}
 		}
+		System.out.println("\n");
 	}
 }

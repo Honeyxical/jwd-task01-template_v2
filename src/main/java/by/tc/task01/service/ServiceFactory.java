@@ -3,6 +3,7 @@ package by.tc.task01.service;
 import by.tc.task01.service.impl.ApplianceServiceImpl;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,15 @@ public final class ServiceFactory {
 
 	public static String getDbUrl(){
 		return "src/main/resources/appliances_db.txt";
+	}
+
+	public static void checkDb(String url){
+		try(FileReader fr = new FileReader(url)) {
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException("Error connect DataBase");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static List<String> getListLine(String url){

@@ -13,6 +13,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.Oven;
 public class Main {
 
 	public static void main(String[] args){
+		ServiceFactory.checkDb(ServiceFactory.getDbUrl());
 
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
@@ -20,7 +21,6 @@ public class Main {
 		Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());//"Oven"
 		criteriaOven.add(Oven.CAPACITY.toString(), 3);
 
-//		Validator.criteriaValidator(criteriaOven);
 		PrintApplianceInfo.print(service.find(criteriaOven));
 
 		criteriaOven = new Criteria(Oven.class.getSimpleName());
